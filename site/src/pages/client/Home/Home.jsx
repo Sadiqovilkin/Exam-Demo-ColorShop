@@ -1,10 +1,11 @@
 import React from 'react'
+import Arrivals from './Arrivals/Arrivals'
 
 const Home = () => {
   return (
-    <div>
-      Home
-    </div>
+<main>
+  <Arrivals/>
+</main>
   )
 }
 

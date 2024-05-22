@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
 
 const ProductModel = new mongoose.model("Coloshop", productSchema)
 
-app.get("/api/coloshop", async (req, res) => {
+app.get("/api/colorshop", async (req, res) => {
     const products = await ProductModel.find()
 
     if (products) {
@@ -35,7 +35,7 @@ app.get("/api/coloshop", async (req, res) => {
     }
 })
 
-app.get("/api/coloshop/:id", async (req, res) => {
+app.get("/api/colorshop/:id", async (req, res) => {
     const { id } = req.params;
     const product = await ProductModel.findById(id)
     if (product) {
@@ -53,7 +53,7 @@ app.get("/api/coloshop/:id", async (req, res) => {
 
 })
 
-app.delete("/api/coloshop/:id", async (req, res) => {
+app.delete("/api/colorshop/:id", async (req, res) => {
     const { id } = req.params;
     let deleting
     try {
