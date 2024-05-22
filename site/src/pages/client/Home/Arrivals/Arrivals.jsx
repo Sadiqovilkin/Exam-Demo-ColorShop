@@ -26,7 +26,7 @@ const Arrivals = () => {
   return (
     <section id='arrivals'>
       <div className="container">
-        <div className="row justify-content-center ">
+        <div className="row justify-content-center  py-5">
           <div className="col-lg-6">
             <div className="section_header">
               <h2>New Arrivals</h2>
@@ -41,7 +41,7 @@ const Arrivals = () => {
             </div>
           </div>
         </div>
-        <div className="row filter-container py-5">
+        <div className="row filter-container ">
           {data && data.map((el , idx )=>
  <div key={idx} className={`col-lg-3  filter-item ${el.categorys} `}>
  <div className="cart">
@@ -51,7 +51,7 @@ const Arrivals = () => {
        <CiHeart/>
      </div>
     {el.discount>0 ?  <div className="discount">
-       {el.discount}
+       {el.discount}%
        </div>:null}
    </div>
    <div className="card_desc">
