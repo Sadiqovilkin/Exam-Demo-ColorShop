@@ -15,7 +15,7 @@ const Best = () => {
         </div>
             <div className="row justify-content-center">
 
-                    <div className="col-lg-2">
+                    <div className="col-lg-2 col-md-4 col-sm-6">
                         <div className="cart">
                             <div className="card_img">
                                 <img src="https://preview.colorlib.com/theme/coloshop/images/product_4.png" alt="" />
@@ -26,7 +26,7 @@ const Best = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-2">
+                    <div className="col-lg-2 col-md-4 col-sm-6">
                         <div className="cart">
                             <div className="card_img">
                                 <img src="https://preview.colorlib.com/theme/coloshop/images/product_4.png" alt="" />
@@ -37,7 +37,7 @@ const Best = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-2">
+                    <div className="col-lg-2 col-md-4 col-sm-6">
                         <div className="cart">
                             <div className="card_img">
                                 <img src="https://preview.colorlib.com/theme/coloshop/images/product_4.png" alt="" />
@@ -48,7 +48,7 @@ const Best = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-2">
+                    <div className="col-lg-2 col-md-4 col-sm-6">
                         <div className="cart">
                             <div className="card_img">
                                 <img src="https://preview.colorlib.com/theme/coloshop/images/product_4.png" alt="" />
@@ -59,7 +59,7 @@ const Best = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-2">
+                    <div className="col-lg-2 col-md-4 col-sm-6">
                         <div className="cart">
                             <div className="card_img">
                                 <img src="https://preview.colorlib.com/theme/coloshop/images/product_4.png" alt="" />
