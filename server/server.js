@@ -12,7 +12,8 @@ const productSchema = new mongoose.Schema({
     title: String,
     imgSrc: String,
     price: Number,
-    discount: Number
+    discount: Number,
+    categorys:String
 },
     { timestamps: true })
 
@@ -73,7 +74,7 @@ app.post("/api/colorshop", async (req, res) => {
     const newProduct = new ProductModel(req.body)
     await newProduct.save()
 
-    res({
+    res.send({
         message: "Posted",
         data: newProduct
     })

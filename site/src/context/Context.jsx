@@ -30,7 +30,7 @@ const DataContextProvider = ({ children }) => {
         })
     }
     const postData = async (payload) => {
-        await axios.post(BASE_URL, payload).then((res) => {
+        await axios.post(BASE_URL, payload).then(() => {
             setData([...data, payload])
         })
     }
@@ -41,13 +41,13 @@ const DataContextProvider = ({ children }) => {
 
     // Basket 
 
-    const [basket, setBasket] = useState(localStorage.getItem("basket") ? JSON.parse(localStorage.getItem("basket")) : [])
+    const [basket , setBasket ]=useState(localStorage.getItem("basket")?JSON.parse(localStorage.getItem("basket")):[] )
 
     const addToCart = (product) => {
         const findProduct = basket.find((x) => x._id == product._id)
         if (findProduct) {
             findProduct.count += 1
-            findProduct.totaPrice = findProduct.count * product.price
+            findProduct.totaPrice = findProduct.count * findProduct.products.price
             Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -59,7 +59,7 @@ const DataContextProvider = ({ children }) => {
         }
         else {
 const newProduct = {
-    _id:product.id,
+    _id:product._id,
     count:1,
     totaPrice:product.price,
     products:product
@@ -73,7 +73,7 @@ Swal.fire({
     timer: 1500
 });
 
-localStorage.setItem("basket", JSON.stringify([...basket, newItem]))
+localStorage.setItem("basket", JSON.stringify([...basket, newProduct]))
         }
     }
 
@@ -86,7 +86,7 @@ localStorage.setItem("basket", JSON.stringify([...basket, newItem]))
     const increase = (product) => {
         const findProduct = basket.find((x) => x._id == product._id)
        findProduct.count += 1
-       item.totalPrice = item.count * item.product.price
+       findProduct.totalPrice = findProduct.count * findProduct.products.price
         setBasket([...basket])
         localStorage.setItem("basket", JSON.stringify([...basket]))
     }
@@ -94,12 +94,12 @@ localStorage.setItem("basket", JSON.stringify([...basket, newItem]))
         const findProduct = basket.find((x) => x._id == product._id)
         if (!findProduct.count == 0) {
             findProduct.count -= 1
-            findProduct.totalPrice = findProduct.count * findProduct.product.price
+            findProduct.totalPrice = findProduct.count * findProduct.products.price
                 localStorage.setItem("basket" , JSON.stringify([...basket]))
                 setBasket([...basket])
         }
         if (findProduct.count == 0 ) {  
-            deleteBasket(product)
+            deleteCart(product)
         }
     }
 
@@ -108,12 +108,12 @@ localStorage.setItem("basket", JSON.stringify([...basket, newItem]))
     
 
 
-    const value = {data,oneData, getOneData,deleteData,postData,addToCart,deleteCart,increase,decrease}
+    const value = {data,oneData, basket,getOneData,deleteData,postData,addToCart,deleteCart,increase,decrease}
     return (
-        <datacontext.Provider value={{ value }}>
+        <datacontext.Provider value={ value }>
             {children}
         </datacontext.Provider>
     )
 }
-
-export { DataContextProvider, datacontext }
+const useDataContext = () => useContext(datacontext)
+export { DataContextProvider, useDataContext }
